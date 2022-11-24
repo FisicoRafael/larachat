@@ -13,7 +13,7 @@ class ChatController extends Controller
         $userController = new UserController;
         $users = $userController->index();
 
-        dd($users);
+        // dd($users);
 
 
         return Inertia::render('Chat/ChatComponent', compact('users'));
