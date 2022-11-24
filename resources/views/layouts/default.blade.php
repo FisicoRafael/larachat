@@ -12,7 +12,6 @@
 </head>
 <body>
     <div class="container">
-
         @yield('content')
         @inertia
     </div>

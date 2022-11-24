@@ -9,6 +9,6 @@ class ChatController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Chat/Chat');
+        return Inertia::render('Chat/ChatComponent');
     }
 }

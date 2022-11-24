@@ -15,6 +15,7 @@
         @inertiaHead
     </head>
     <body class="font-sans antialiased">
+        teste
         @inertia
     </body>
 </html>
