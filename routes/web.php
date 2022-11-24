@@ -7,9 +7,9 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 
-Route::get('/chat',[ChatController::class,'index'])->name('get.chat');
+Route::get('/chat', [ChatController::class, 'index'])->name('get.chat')->middleware('auth');
 
-Route::redirect('/','chat')->name('red.chat');
+Route::redirect('/', 'chat')->name('red.chat');
 
 
 // Route::get('/', function () {
@@ -31,4 +31,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
