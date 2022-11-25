@@ -15,7 +15,7 @@ class ChatController extends Controller
 
         // dd($users);
 
-
-        return Inertia::render('Chat/ChatComponent', compact('users'));
+        return $users;
+        // return Inertia::render('Chat/ChatComponent', compact('users'));
     }
 }
