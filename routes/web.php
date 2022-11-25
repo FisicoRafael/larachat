@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChatAPIController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -9,17 +10,20 @@ use Inertia\Inertia;
 
 Route::get('/chat', [ChatController::class, 'index'])->name('get.chat')->middleware('auth');
 
+Route::get('/message', [ChatAPIController::class, 'store'])->name('get.store')->middleware('auth');
+
+
 Route::redirect('/', 'chat')->name('red.chat');
 
 
-// Route::get('/', function () {
-//     return Inertia::render('Welcome', [
-//         'canLogin' => Route::has('login'),
-//         'canRegister' => Route::has('register'),
-//         'laravelVersion' => Application::VERSION,
-//         'phpVersion' => PHP_VERSION,
-//     ]);
-// });
+Route::get('/', function () {
+    return Inertia::render('Welcome', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+});
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

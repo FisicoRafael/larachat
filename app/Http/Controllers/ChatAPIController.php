@@ -4,21 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreMessage;
 use App\Http\Resources\MessageResource;
+use App\Models\Message;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class ChatAPIController extends Controller
 {
-    protected $user;
+    protected $message;
 
-    public function __construct(User $user)
+    public function __construct(Message $message)
     {
-        $this->user = $user;
+        $this->message = $message;
     }
 
     public function store(StoreMessage $request)
     {
-        $messages = $request->user()->messages()->create($request->all());
+        $messages = $request->user()->message()->create($request->all());
 
         return new MessageResource($messages);
     }
