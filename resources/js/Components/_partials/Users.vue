@@ -23,6 +23,7 @@
             <div v-for="(user, index) in users" :key="index">
                 <li class="bg-white hover:bg-gray-100 border-b p-4 cursor-pointer"
                     :class="{ 'is-active': activeChat === index }">
+
                     <div class="flex items-center relative">
                         <div class="relative">
                             <img src="https://images.unsplash.com/photo-1549078642-b2ba4bda0cdb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144"
@@ -53,24 +54,25 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
+    // mounted() {
+    //     this.getUsers()
+    // },
+    props: {
+        usuarios: {
+            type: Array
+        }
+    },
     data() {
         return {
             selected: "inbox",
             activeChat: 0,
-            users: [
-                {
-                    id: 1,
-                    name: "Carlos",
-                    label: "Novas Mensagens",
-                },
-                {
-                    id: 2,
-                    name: "Outro User",
-                    label: "Novas Mensagens",
-                },
-            ],
+            users: this.usuarios.data
         };
     },
+    // methods: {
+    //     ...mapActions(['getUsers'])
+    // }
 };
 </script>
